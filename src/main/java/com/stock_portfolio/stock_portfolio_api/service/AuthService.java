@@ -2,6 +2,7 @@ package com.stock_portfolio.stock_portfolio_api.service;
 
 import com.nimbusds.jwt.JWTClaimsSet;
 import com.stock_portfolio.stock_portfolio_api.common.JwtUtil;
+import com.stock_portfolio.stock_portfolio_api.dto.request.TargetRequest;
 import com.stock_portfolio.stock_portfolio_api.dto.response.LoginResponse;
 import com.stock_portfolio.stock_portfolio_api.entity.User;
 import com.stock_portfolio.stock_portfolio_api.repository.UserRepository;
@@ -17,6 +18,7 @@ public class AuthService {
     private final GoogleTokenVerifier googleTokenVerifier;
     private final UserRepository userRepository;
     private final JwtUtil jwtUtils;
+    private final TargetService targetService;
 
     public LoginResponse loginWithGoogle(String idToken) throws Exception {
 
@@ -39,6 +41,9 @@ public class AuthService {
             user.setEmail(email);
             user.setName(name);
             user = userRepository.save(user);
+            TargetRequest targetRequest = new TargetRequest();
+            targetRequest.setTarget("");
+            targetService.createTarget(user.getId(),targetRequest);
         }
 
         // 3. generate JWT (reuse ของคุณ)
