@@ -42,7 +42,7 @@ public class StockTransactionService {
         StockTransaction transaction = StockTransaction.builder()
                 .userId(userId)
                 .stock(stock)
-                .transactionDate(LocalDateTime.now())
+                .transactionDate(request.getTransactionDate())
                 .transactionType(request.getTransactionType())
                 .price(request.getPrice())
                 .priceUnit(request.getPriceUnit())
@@ -73,6 +73,7 @@ public class StockTransactionService {
         transaction.setCommissionUnit(request.getCommissionUnit());
         transaction.setExchangeRate(request.getExchangeRate());
         transaction.setReason(request.getReason());
+        transaction.setTransactionDate(request.getTransactionDate());
         transaction.setUpdatedAt(LocalDateTime.now());
 
         StockTransaction saved = stockTransactionRepository.save(transaction);

@@ -20,8 +20,8 @@ public class CreateStockTransactionRequest {
     @Min(value = 1, message = "Stock ID ต้องมากกว่า 0")
     private Long stockId;
 
-//    @NotNull(message = "วันที่ทำรายการต้องระบุ")
-//    private LocalDateTime transactionDate;
+    @NotNull(message = "วันที่ทำรายการต้องระบุ")
+    private LocalDateTime transactionDate;
 
     @NotBlank(message = "ประเภทรายการต้องระบุ (BUY/SELL)")
     private String transactionType;
