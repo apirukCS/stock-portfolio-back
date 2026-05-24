@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface StockNewsRepository extends JpaRepository<StockNews, Long> {
     boolean existsByUrl(String url);
-    List<StockNews> findTop100ByOrderByDatetimeDesc();
+    List<StockNews> findTop30ByOrderByDatetimeDesc();
 }

@@ -18,6 +18,6 @@ public class NewsController {
 
     @GetMapping
     public List<StockNews> getNews() {
-        return repository.findTop100ByOrderByDatetimeDesc();
+        return repository.findTop30ByOrderByDatetimeDesc();
     }
 }
