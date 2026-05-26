@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/users")
@@ -15,6 +16,11 @@ import java.util.List;
 public class UserController {
 
     private final UserService userService;
+
+    @GetMapping("/count")
+    public Map<String, Long> getCountUser() {
+        return Map.of("count", userService.getCountUser());
+    }
 
 //    @GetMapping
 //    public ResponseEntity<List<UserResponse>> getAllUsers() {

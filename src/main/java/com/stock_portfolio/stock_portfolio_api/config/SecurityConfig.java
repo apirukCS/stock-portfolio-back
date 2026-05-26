@@ -53,7 +53,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorizeRequests ->
                         authorizeRequests
                                 .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                                .requestMatchers("/api/auth/**", "/api/test/all", "/api/auth/google-login", "/api/test/version", "/api/exchange-rate").permitAll()  // ✅ OAuth2 paths
+                                .requestMatchers("/api/auth/**", "/api/auth/google-login", "/api/test/version", "/api/exchange-rate", "/api/users/count").permitAll()  // ✅ OAuth2 paths
                                 .anyRequest().authenticated()
                 );
 

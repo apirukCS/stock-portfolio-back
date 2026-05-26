@@ -23,6 +23,10 @@ public class UserService {
     @Autowired
     TargetService targetService;
 
+    public long getCountUser(){
+        return userRepository.count();
+    }
+
 //    public User createUser(RegisterRequest request) {
 //        if (userRepository.existsByUsername(request.getUsername())) {
 //            throw new BadRequestException("ชื่อผู้ใช้งานนี้ถูกใช้งานแล้ว");
